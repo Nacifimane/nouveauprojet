@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js">  </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <title>Controle Exercie1</title>
+
+    <style >
+      
+      #exo1 {
+
+        border : solid ;
+         padding-top: 10px;
+          padding-left: 30px;
+           padding-right:  30px;
+            padding-bottom: 30px;
+
+            width : 80%;
+              margin-top: 50px;
+               margin-left: 50px;
+
+      }
+      #cont {
+        width: 500px ;
+        height: 150px;
+        font-size: 20px;
+      }
+    </style>
+    <script>
+        
+      
+        $("document").ready(function(){
+
+            alert("Debut d'examen");
+        });
+       
+         var contenu = ["Contenu N1 ", "Contenu N2", "Contenu N3"];
+         var coleurs = ["Purple", "green", "yellow"];
+         var positionContenu=0;
+         var positionColeur=0;
+
+         function suivant()
+         {
+               positionContenu++;
+               if(positionContenu>=contenu.length){
+                   positionContenu=0;
+               }
+              document.getElementById("cont").value=contenu[positionContenu];
+
+         }
+         function precident()
+         {
+               positionContenu--;
+               if(positionContenu == -1){
+                   positionContenu=contenu.length-1;
+               }
+               document.getElementById("cont").value=contenu[positionContenu];
+         }
+         function Cacher(){
+            document.getElementById("cont").value="";
+         }
+         function Montrer(){
+            document.getElementById("cont").value=contenu[positionContenu];
+         }
+
+        function coleur(){
+              
+            document.getElementById("cont").style.backgroundColor=coleurs[positionColeur];
+            positionColeur++;
+            if(positionColeur>=3){
+                positionColeur=0;
+            }
+        }
+      
+    </script>
+
+</head>
+<body id="exo1" >
+<h1> Controle : Exercice 1 </h1>
+<textarea cols="19" rows="9" id="cont">Contenu1</textarea> <br> <br>
+<button class="btn btn-primary" onclick="precident()">Contenu precedent</button>&nbsp;&nbsp;
+<button class="btn btn-info" onclick="suivant()">Contenu suivant</button>&nbsp;&nbsp;
+<button class="btn btn-success" onclick="Cacher()">Cacher le contenu</button>&nbsp;&nbsp;
+<button class="btn btn-danger" onclick="Montrer()">Montrer le contenu </button>&nbsp;&nbsp;
+<button class="btn btn-warning" onclick="coleur()">Changer couleur</button>&nbsp;&nbsp;
+
+
+</body>
+
+</html>
