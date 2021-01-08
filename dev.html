@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>s1exo2</title>
+
+	<style type="text/css">
+		div{
+				margin-bottom: 50px;
+               
+
+			}
+	</style>
+</head>
+<body id="body">
+<?php 
+
+
+
+$image = array("Image1"=>"./images/imge1.jpg",
+	"Image2"=>"./images/img2.jpg", 
+	"Image3"=>"./images/img3.jpg", 
+	"Image4"=>"./images/img4.jpg", 
+	"Image5"=>"./images/img5.jpg");
+   function affiche_image($image){
+   	return rand(0,4);
+   }
+?>
+
+<script>
+		var src = "<?php echo array_values($image)[affiche_image($image)]; ?>";
+		document.getElementById("body").style.backgroundImage = "url('"+src+"')";
+	    document.getElementById("body").style.backgroundRepeat = "no-repeat";
+	    document.getElementById("body").style.backgroundSize = "1300px";
+	   
+	</script>
+</body>
+
+
+
+
+</html>
